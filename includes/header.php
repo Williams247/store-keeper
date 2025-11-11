@@ -1,3 +1,8 @@
+<?php
+  include "db.php";
+  include "session.php";
+?>
+
 <header>
   <title>Store Keeper</title>
   <link

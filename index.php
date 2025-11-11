@@ -1,8 +1,5 @@
 <?php include "./includes/header.php"; ?>
 
-<?php
-  
-?>
 
 <div class="w-100 bg-body-secondary d-flex justify-content-center h-100 align-items-center">
   <div class="w-25">
