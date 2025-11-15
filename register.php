@@ -1,7 +1,7 @@
 <?php
 include "./includes/header.php";
 
-// Initialize error and response variables
+# Initialize error and response variables
 $email_error = "";
 $name_error = "";
 $password_error = "";
@@ -13,14 +13,14 @@ $password = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  // Trim inputs
+  # Trim inputs
   $name = trim($_POST['name']);
   $email = trim($_POST['email']);
   $password = $_POST['password'];
 
   $has_error = false;
 
-  // Validate inputs
+  # Validate inputs
   if (empty($name)) {
     $name_error = "Name is required";
     $has_error = true;
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $has_error = true;
   }
 
-  // Check if user already exists
+  # Check if user already exists
   if (!$has_error) {
     $sql = "SELECT * FROM users WHERE email = $1";
     $result = pg_query_params($conn, $sql, [$email]);
@@ -50,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   }
 
-  // Insert into database if no errors
+  # Insert into database if no errors
   if (!$has_error) {
-    // Generate a unique ID
+    # Generate a unique ID
     $id = random_int(1, 999999999999999999);
 
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result) {
       $response_message = 'User Registered Successfully';
-      // Clear form values after successful registration
+      # Clear form values after successful registration
       $name = $email = $password = '';
     } else {
       $response_message = 'Failed to register user. Please try again.';

@@ -1,7 +1,7 @@
 <?php
 include "./includes/header.php";
 
-// Initialize variables
+# Initialize variables
 $email = '';
 $password = '';
 $email_error = '';
@@ -9,13 +9,13 @@ $password_error = '';
 $login_error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-	// Trim inputs
+	# Trim inputs
 	$email = trim($_POST['email']);
 	$password = $_POST['password'];
 
 	$has_error = false;
 
-	// Validate email
+	# Validate email
 	if (empty($email)) {
 		$email_error = "Email is required";
 		$has_error = true;
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$user = pg_fetch_assoc($result);
 
 			if (password_verify($password, $user['password'])) {
-				// Successful login
+				# Successful login
 				$_SESSION['STORE_KEEPER_USER'] = $email;
 				setcookie('STORE_KEEPER_USER', $email, time() + 86400 * 30, '/store-keeper/');
 				header('Location: /store-keeper/dashboard.php');
