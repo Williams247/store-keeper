@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			if (password_verify($password, $user['password'])) {
 				// Successful login
 				$_SESSION['STORE_KEEPER_USER'] = $email;
+				setcookie('STORE_KEEPER_USER', $email, time() + 86400 * 30, '/store-keeper/');
 				header('Location: /store-keeper/dashboard.php');
 				exit();
 			} else {
