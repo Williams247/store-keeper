@@ -1,6 +1,4 @@
-<?php
-  include "db.php";
-?>
+<?php include __DIR__ . '/../database/db.php'; ?>
 
 <header>
   <title>Store Keeper</title>

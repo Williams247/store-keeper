@@ -24,13 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$has_error = true;
 	}
 
-	// Validate password
+	# Validate password
 	if (empty($password)) {
 		$password_error = "Password is required";
 		$has_error = true;
 	}
 
-	// Proceed if no validation errors
+	# Proceed if no validation errors
 	if (!$has_error) {
 		$sql = "SELECT * FROM users WHERE email = $1";
 		$result = pg_query_params($conn, $sql, [$email]);

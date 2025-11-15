@@ -1,6 +1,9 @@
-<?php include "./includes/header.php"; ?>
-<?php include "./includes/auth/is-logged-in.php"; ?>
+<?php
+   include "./includes/header.php";
+   include "./auth/is-logged-in.php";
+?>
 
-<div>
-    This is the dashboard
+<div class="d-flex">
+   <?php include './includes/sidebar.php'; ?>
+   <div class="w-75 bg-body-secondary">test2</div>
 </div>
