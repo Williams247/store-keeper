@@ -2,7 +2,8 @@
 # Menu urls and labels
 $menus = [
     ["label" => "Dashboard", "url" => "/store-keeper/dashboard.php?current_page=dashboard"],
-    ["label" => "Create Record", "url" => "/store-keeper/create-record.php?current_page=create_record"]
+    ["label" => "Create Record", "url" => "/store-keeper/create-record.php?current_page=create_record"],
+    ["label" => "Settings", "url" => "/store-keeper/settings.php?current_page=settings"]
 ];
 
 # Logout user if logout button is clicked
