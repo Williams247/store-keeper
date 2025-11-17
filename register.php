@@ -74,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <script>
     function onShowResponseMessage(message) {
       alert(message);
+      window.location.href = "/store-keeper/index.php";
     }
     onShowResponseMessage("<?php echo $response_message; ?>");
   </script>
@@ -81,6 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="w-100 bg-body-secondary d-flex justify-content-center h-100 align-items-center">
   <div class="w-25">
+
     <h5 class="text-center">
       <span class="text-secondary">Store</span>
       <span class="text-dark-emphasis">Keeper</span>
@@ -88,14 +90,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="w-full bg-white border px-3 pt-4 pb-2 mt-3">
       <form method="POST">
-        <input type="text" name="name" class="form-control" placeholder="Full Name"
-          value="<?php echo htmlspecialchars($name); ?>" />
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          placeholder="Full Name"
+          value="<?php echo htmlspecialchars($name); ?>"
+        />
+
         <?php if ($name_error): ?>
           <p class="text-danger mt-1"><?php echo $name_error; ?></p>
         <?php endif ?>
 
-        <input type="email" name="email" class="form-control mt-3" placeholder="admin@sample.com"
-          value="<?php echo htmlspecialchars($email); ?>" />
+        <input
+          type="email"
+          name="email"
+          class="form-control mt-3"
+          placeholder="admin@sample.com"
+          value="<?php echo htmlspecialchars($email); ?>"
+        />
+
         <?php if ($email_error): ?>
           <p class="text-danger mt-1"><?php echo $email_error; ?></p>
         <?php endif ?>

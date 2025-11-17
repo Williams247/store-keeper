@@ -37,12 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 		if ($result && pg_num_rows($result) > 0) {
 			$user = pg_fetch_assoc($result);
-
 			if (password_verify($password, $user['password'])) {
-				# Successful login
-				$_SESSION['STORE_KEEPER_USER'] = $email;
-				setcookie('STORE_KEEPER_USER', $email, time() + 86400 * 30, '/store-keeper/');
-				header('Location: /store-keeper/dashboard.php');
+
+				# When login is succefull, set a cookie with the user's ID
+				setcookie(
+					'STORE_KEEPER_USER', 
+					$user['id'], 
+					time() + 86400 * 30, '/store-keeper/'
+				);
+
+				header('Location: /store-keeper/dashboard.php?current_page=Dashboard');
 				exit();
 			} else {
 				$password_error = "Incorrect password";
