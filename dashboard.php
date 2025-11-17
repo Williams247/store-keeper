@@ -2,7 +2,7 @@
 include "./includes/header.php";
 include "./auth/is-logged-in.php";
 
-$user_email = $_COOKIE['STORE_KEEPER_USER'];
+$user_id = $_COOKIE['STORE_KEEPER_USER'];
 ?>
 
 <div class="d-flex">
@@ -12,7 +12,7 @@ $user_email = $_COOKIE['STORE_KEEPER_USER'];
       <div class="mx-auto mt-4 w-75">
          <?php
          $query = "SELECT * FROM stores WHERE email = $1";
-         $result = pg_query_params($conn, $query, [$user_email]);
+         $result = pg_query_params($conn, $query, [$user_id]);
 
          if ($result && pg_num_rows($result) > 0) {
              $store = pg_fetch_assoc($result);

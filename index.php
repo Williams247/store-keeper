@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					time() + 86400 * 30, '/store-keeper/'
 				);
 
-				header('Location: /store-keeper/dashboard.php?current_page=Dashboard');
+				header('Location: /store-keeper/dashboard.php?current_page=dashboard');
 				exit();
 			} else {
 				$password_error = "Incorrect password";
